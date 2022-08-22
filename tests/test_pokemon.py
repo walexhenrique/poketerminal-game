@@ -1,7 +1,24 @@
+try:
+    import os
+    import sys
+
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+except:
+    raise
+
 import unittest
-from pokemon import Pokemon, PokemonAgua, PokemonFogo, PokemonEletrico, PokemonPedra
-from pokemon import Onix, Magicarpa, Charmander, Pikachu, PokemonFactory
+
 from ataque import AtaqueNormal
+from pokemon import (Charmander, Magicarpa, Onix, Pikachu, Pokemon,
+                     PokemonAgua, PokemonEletrico, PokemonFactory, PokemonFogo,
+                     PokemonPedra)
 
 
 class TestPokemon(unittest.TestCase):
@@ -48,7 +65,8 @@ class TestPokemon(unittest.TestCase):
         ataque_base_antes_pokemon = self.pokemon.ataque_base
         self.pokemon.subir_nivel()
         self.assertNotEqual(self.pokemon.vida, vida_antes_pokemon)
-        self.assertNotEqual(self.pokemon.ataque_base, ataque_base_antes_pokemon)
+        self.assertNotEqual(self.pokemon.ataque_base,
+                            ataque_base_antes_pokemon)
 
 
 class TestPokemonAgua(unittest.TestCase):
@@ -115,7 +133,8 @@ class TestOnix(unittest.TestCase):
         pokemon_apanha = Pokemon(5)
         pokemon_apanha_vida_antes_da_luta = pokemon_apanha.vida
         self.onix.atacar(pokemon_apanha)
-        self.assertGreater(pokemon_apanha_vida_antes_da_luta, pokemon_apanha.vida)
+        self.assertGreater(pokemon_apanha_vida_antes_da_luta,
+                           pokemon_apanha.vida)
 
 
 class TestCharmander(unittest.TestCase):
@@ -126,7 +145,8 @@ class TestCharmander(unittest.TestCase):
         pokemon_apanha = Pokemon(5)
         pokemon_apanha_vida_antes_da_luta = pokemon_apanha.vida
         self.charmander.atacar(pokemon_apanha)
-        self.assertGreater(pokemon_apanha_vida_antes_da_luta, pokemon_apanha.vida)
+        self.assertGreater(pokemon_apanha_vida_antes_da_luta,
+                           pokemon_apanha.vida)
 
 
 class TestPikachu(unittest.TestCase):
@@ -137,7 +157,8 @@ class TestPikachu(unittest.TestCase):
         pokemon_apanha = Pokemon(5)
         pokemon_apanha_vida_antes_da_luta = pokemon_apanha.vida
         self.pikachu.atacar(pokemon_apanha)
-        self.assertGreater(pokemon_apanha_vida_antes_da_luta, pokemon_apanha.vida)
+        self.assertGreater(pokemon_apanha_vida_antes_da_luta,
+                           pokemon_apanha.vida)
 
 
 class TestMagicarpa(unittest.TestCase):
@@ -148,7 +169,8 @@ class TestMagicarpa(unittest.TestCase):
         pokemon_apanha = Pokemon(5)
         pokemon_apanha_vida_antes_da_luta = pokemon_apanha.vida
         self.magicarpa.atacar(pokemon_apanha)
-        self.assertGreater(pokemon_apanha_vida_antes_da_luta, pokemon_apanha.vida)
+        self.assertGreater(pokemon_apanha_vida_antes_da_luta,
+                           pokemon_apanha.vida)
 
 
 class TestPokemonFactory(unittest.TestCase):
